@@ -201,6 +201,12 @@ class APIEcoleDirecte extends API {
               EcoleDirecteMethod.recipients, offlineController.recipients.getRecipients));
         }
         break;
+      case "schoolLife":
+        {
+          print("Returing SchoolLife tickets");
+          return (await EcoleDirecteMethod.schoolLife);
+        }
+        break;
     }
   }
 

@@ -163,6 +163,16 @@ class EcoleDirecteMethod {
     return recipients;
   }
 
+  static Future<List<SchoolLifeObj>> schoolLife() async {
+    await EcoleDirecteMethod.testToken();
+    String rootUrl = 'https://api.ecoledirecte.com/v3/eleves/';
+    String method = "viescolaire.awp?verbe=get&";
+    String data = 'data={"token": "$token"}';
+    List<SchoolLifeObj> schoolLifeList = await request(
+        data, rootUrl, method, EcoleDirecteConverter.schoolLife, "School Life request returned an error:");
+    return schoolLifeList;
+  }
+
 //Bool value and Token validity tester
   static testToken() async {
     if (token == "" || token == null) {
